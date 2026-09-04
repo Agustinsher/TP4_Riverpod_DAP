@@ -54,10 +54,12 @@ class PlayerNotifier extends StateNotifier<List<Player>> {
           ),
         ]);
 
+  // Agrega un nuevo jugador al final de la lista
   void addPlayer(Player player) {
     state = [...state, player];
   }
 
+  // Busca el jugador por su ID (su nombre) y lo reemplaza con la informacion actualizada
   void updatePlayer(Player updatedPlayer) {
     state = [
       for (final p in state)
@@ -65,11 +67,13 @@ class PlayerNotifier extends StateNotifier<List<Player>> {
     ];
   }
 
+  // Elimina un jugador manteniendo solo los que tienen un ID distinto al recibido
   void removePlayer(String id) {
     state = state.where((p) => p.id != id).toList();
   }
 }
 
+// Provider global que expone la lista de jugadores y permite modificar su estado desde cualquier pantalla
 final playerProvider = StateNotifierProvider<PlayerNotifier, List<Player>>((ref) {
   return PlayerNotifier();
 });
