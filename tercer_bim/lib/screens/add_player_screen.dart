@@ -70,7 +70,7 @@ class _AddPlayerScreenState extends ConsumerState<AddPlayerScreen> {
         return p;
       }).toList();
 
-      ref.read(playerProvider.notifier).state = nuevaLista;
+      ref.read(playerProvider.notifier).state = nuevaLista; //actualiza la lista de jugadores con los cambios realizados
     } else {
       final nuevoJugador = Player(
         id: DateTime.now().toString(),

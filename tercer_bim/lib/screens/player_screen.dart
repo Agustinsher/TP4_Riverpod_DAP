@@ -20,7 +20,7 @@ class PlayerScreen extends ConsumerWidget {
           IconButton(
             icon: const Icon(Icons.logout),
             onPressed: () {
-              ref.read(currentUserProvider.notifier).state = null;
+              ref.read(currentUserProvider.notifier).state = null; //sirve para cerrar sesion y volver a la pantalla de login
               context.go('/login');
             },
           )
